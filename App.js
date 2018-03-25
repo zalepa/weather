@@ -1,23 +1,45 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 export default class App extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
+    return (<View style={styles.container}>
+      <Text style={[styles.largeText, styles.textStyle]}>San Francisco</Text>
+      <Text style={[styles.smallText, styles.textStyle]}>Light Cloud</Text>
+      <Text style={[styles.largeText, styles.textStyle]}>24°</Text>
+    </View>);
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#fff',
+    flex: 1,
+    justifyContent: 'center'
+  },
+  textStyle: {
+    textAlign: 'center',
+    ...Platform.select({
+      ios: {
+        fontFamily: 'AvenirNext-Regular',
+      },
+      android: {
+        fontFamily: 'Roboto',
+      },
+    })
+  },
+  largeText: {
+    fontSize: 44,
+  },
+  smallText: {
+    fontSize: 18,
   },
 });
