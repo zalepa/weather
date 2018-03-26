@@ -20,16 +20,13 @@ import {
 } from './utils/api';
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      location: '',
-      loading: false,
-      error: false,
-      temperature: 0,
-      weather: '',
-    };
-  }
+  state = {
+    location: '',
+    loading: false,
+    error: false,
+    temperature: 0,
+    weather: '',
+  };
 
   componentDidMount() {
     this.handleUpdateLocation('San Francisco');
